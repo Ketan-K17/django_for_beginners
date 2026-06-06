@@ -7,7 +7,7 @@ def home_page_view(request):
     return HttpResponse("HomePage")
 
 def about_page_view(request):
-    context = {'name': 'Ketan Kunkalikar'}
+    context = {'name': 'Ketan Kunkalikar', 'age': 24}
     return render(request, "pages/about.html", context)
     # NOTE: Templates often have some dynamic content (not HTML) that is to be shown on the final rendered HTML. These could include values picked from a database or other sources. All of these values to be shown on the final rendered HTML must be passed to the template as 'context' data. 'context' is a dictionary of key-value pairs that are used to pass data to the template. You use it as the last of 3 params to pass to the render() function..
 
