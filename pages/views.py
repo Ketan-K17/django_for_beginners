@@ -1,16 +1,22 @@
-# A view is a Python function that accepts a Web request and returns a Web response. 
-
-from django.http import HttpResponse
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
 def home_page_view(request):
-    return HttpResponse("HomePage")
+    context = {
+        "inventory_list": ["Widget 1", "Widget 2", "Widget 3"],
+        "greeting": "THAnk you FOR visitING.",
+    }
+    return render(request, "home.html", context)
 
-def about_page_view(request):
-    context = {'name': 'Ketan Kunkalikar', 'age': 24}
-    return render(request, "pages/about.html", context)
-    # NOTE: Templates often have some dynamic content (not HTML) that is to be shown on the final rendered HTML. These could include values picked from a database or other sources. All of these values to be shown on the final rendered HTML must be passed to the template as 'context' data. 'context' is a dictionary of key-value pairs that are used to pass data to the template. You use it as the last of 3 params to pass to the render() function..
 
-    # so a render function needs 1. httprequest obj, 2. template name, 3. context data
+# NOTE: There's 3 ways of writing views today in Django, 1. function-based: what we've been doing so far, 2. Class-based, 3. Generic Class-based (technically a subset of class-based views). This one is generic class-based. I think the difference between latter 2 is that in Generic Class-based views come with built-in methods for common tasks like rendering a template, handling HTTP requests, and more.
+class AboutPageView(TemplateView):
+    template_name = "about.html"
 
-    # NOTE: sending variables from backend in the form of 'context' refers to 'server-side rendering' of templates... A common way of doing data transfer from backend to a frontend library like react, angular, vue is to pass a 'data' jsonresponse, which then gets unpacked on the frontend and rendered on the page. This is called 'client-side rendering'.
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["contact_address"] = "Kalika Square"
+        context["phone_number"] = "555-555-5555"
+        return context
+
+    # NOTE: One of the most powerful, useful, and commonly used methods in Django is get_context_data(). It is the recommended approach for updating the template's context in a generic class-based view. 

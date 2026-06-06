@@ -1,0 +1,10 @@
+<!-- templates/base.html -->
+<header>
+<a href="/">Home</a> |
+<a href="/about">About</a>
+</header>
+{% block content %}{% endblock %}
+
+{% comment %} NOTE: this is a base.html file, which is created with the intent of reusing it wherever applicable in other files, and reducing the amount of repeated template code.
+ 
+You use block tags within a base.html file to define sections that can be overridden by child templates.{% endcomment %}

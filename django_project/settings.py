@@ -55,7 +55,7 @@ ROOT_URLCONF = 'django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"], # this is the default directory for templates, but you can add more directories here if you want to store your templates in a different location
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
