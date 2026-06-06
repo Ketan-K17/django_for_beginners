@@ -1,0 +1,9 @@
+<!-- pages/templates/pages/about.html -->
+
+<!-- Your templates must always be stored in foll format within an app : app/templates/app/template_name.html -->
+
+<h1>About page</h1>
+<p>This is the new template-powered About page.</p>
+{% comment %}This is just a comment. It won't appear on the web page!{% endcomment %}
+ 
+{% comment %} Why use comment tags from Django's templating library: comment tags are solely for the developer's reference.. it will NOT show up on the final rendered HTML on the site... In fact, even normal HTML comments WILL appear in the final rendered html content (just view page source of the page, you'll see HTML comments but not comment tag comments). This makes comment tags safe for documenting your own code but not for end users to see. {% endcomment %}
