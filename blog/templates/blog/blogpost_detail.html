@@ -1,0 +1,9 @@
+<!-- templates/blogpost_detail.html -->
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="post-entry">
+<h2>{{ blogpost.title }}</h2>
+<p>Author: {{ blogpost.author }}</p>
+<p>{{ blogpost.body }}</p>
+</div>
+{% endblock content %}
