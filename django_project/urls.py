@@ -19,6 +19,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("accounts/", include("django.contrib.auth.urls")),
+    # heading into accounts uses the 'auth' app, which comes off the box.. you can then use the login / logout functionality in it.
     path('', include('pages.urls')),
     path('posts/', include('posts.urls')),
     path('blog/', include('blog.urls')),
