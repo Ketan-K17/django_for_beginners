@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
     # heading into accounts uses the 'auth' app, which comes off the box.. you can then use the login / logout functionality in it.
+    path("accounts/", include("accounts.urls")), # it's important this signup url comes below login url pattern... Since it's read top-down, if the top login url fails, then we do signup.
     path('', include('pages.urls')),
     path('posts/', include('posts.urls')),
     path('blog/', include('blog.urls')),

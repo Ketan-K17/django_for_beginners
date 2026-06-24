@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'pages',
     'posts',
     'blog',
+    'accounts',
 ]
 
 JAZZMIN_UI_TWEAKS = {
