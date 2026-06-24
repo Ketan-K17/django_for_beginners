@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import blogpost_list, blogpost_detail
+from .views import BlogListView, BlogDetailView
 
 app_name = 'blog'
 
 urlpatterns = [
-    path("", blogpost_list, name="home"),
-    path("blogpost/<int:pk>/", blogpost_detail, name="blogpost_detail")
+    path("", BlogListView.as_view(), name="home"),
+    path("blogpost/<int:pk>/", BlogDetailView.as_view(), name="blogpost_detail")
     # this <int:pk> thing is a 'path converter'
 ]
