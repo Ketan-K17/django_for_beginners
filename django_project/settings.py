@@ -38,10 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 3rd party apps
+    "crispy_forms",
+    "crispy_bootstrap5",
+    # local apps
     'pages',
     'posts',
     'blog',
     'accounts',
+    'newspaper_app'
 ]
 
 AUTH_USER_MODEL = "accounts.CustomUser"
@@ -133,5 +138,8 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = "blog:home"
-LOGOUT_REDIRECT_URL = "blog:home"
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"

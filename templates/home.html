@@ -1,16 +1,17 @@
-<!-- templates/home.html -->
 {% extends "base.html" %}
-{% comment %} NOTE: the 'extends' tag is our way of using other template files in this one. {% endcomment %}
-
+{% block title %}Home{% endblock title %}
 {% block content %}
-<h1>Company Homepage</h1>
-<p>The current date and time is: {% now "DATETIME_FORMAT" %}</p>
-<p>There are {{ inventory_list|length }} items of inventory.
-<ul>
-{% for item in inventory_list %}
-<li>{{ item }}</li>
-{% endfor %}
-</ul>
-<p>{{ greeting| title }}</p>
-{% comment %}Add more content here!{% endcomment %}
-{% endblock %}
+{% if user.is_authenticated %}
+<!-- new code here! -->
+Hi {{ user.username }}! You are {{ user.age }} years old.
+<!-- end of new code -->
+<form action="{% url 'logout' %}" method="post">
+{% csrf_token %}
+<button type="submit">Log Out</button>
+</form>
+{% else %}
+<p>You are not logged in</p>
+<a href="{% url 'login' %}">Log In</a> |
+<a href="{% url 'signup' %}">Sign Up</a>
+{% endif %}
+{% endblock content %}
