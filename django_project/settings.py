@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'accounts',
 ]
 
+AUTH_USER_MODEL = "accounts.CustomUser"
+
 JAZZMIN_UI_TWEAKS = {
     "theme": "lux"
 }

@@ -1,10 +1,11 @@
+from django.conf import settings
 from django.db import models
 from django.urls import reverse
 
 class Blogpost(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(
-        "auth.User",
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
     body = models.TextField()
