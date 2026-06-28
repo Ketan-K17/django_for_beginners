@@ -18,6 +18,10 @@
     <a href="{% url 'article_edit' article.pk %}">Edit</a>
     <a href="{% url 'article_delete' article.pk %}">Delete</a>
     {% endif %}
+    &middot;
+    <a href="{{ article.get_absolute_url }}#comments">
+        {{ article.comments.count }} comment{{ article.comments.count|pluralize }}
+    </a>
 </div>
 </div>
 <br />
